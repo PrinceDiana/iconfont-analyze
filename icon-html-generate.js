@@ -1,7 +1,6 @@
 /**
- * 将代码中不再引用的图标生成可视化界面
+ * 生成图标列表html
  */
-
 const fs = require("fs");
 
 const readFile = function(fileName) {
@@ -14,9 +13,8 @@ const readFile = function(fileName) {
     });
 };
 
-// 读取文件名键值对
 (async function() {
-    const data = await readFile("./private-sign@4.2-iconfont-unused.json"); // 读取不再使用的icon
+    const data = await readFile("./private-sign@4.2-iconfont-unused.json"); // 不再使用的icons
     fileDataMap = JSON.parse(data.toString());
 
     let htmlContent = "";
@@ -35,7 +33,7 @@ const readFile = function(fileName) {
                         ${iconHtml}
                     </ul>`;
 
-    // 将图标列表html写入文件
+    // 写入文件
     fs.writeFile("./private-sign@4.2-iconfont-unused.html", htmlContent, "utf8", err => {
         if (err) return console.log(err);
 

@@ -14,7 +14,6 @@ const readFile = function(fileName) {
     });
 };
 
-// 读取文件名键值对
 (async function() {
     const data1 = await readFile('./iconfont.json');
     qysIconList = JSON.parse(data1.toString());
